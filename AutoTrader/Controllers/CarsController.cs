@@ -23,5 +23,31 @@ namespace AutoTrader.Controllers
             }
 
         }
+
+        [HttpPost]
+        public ActionResult<Car> AddNewRecord(Car car)
+        {
+            using (var context = new CarDbContext())
+            {
+                var newCAr = new Car
+                {
+                    Brand = car.Brand,
+                    Type = car.Type,
+                    Color = car.Color,
+                    Year = car.Year
+                };
+
+                if (newCAr != null)
+                {
+                    context.Cars.Add(newCAr);
+                    context.SaveChanges();
+                    return StatusCode(201, newCAr);
+                }
+
+                return BadRequest(new { message = "Sikertelen feltöltés." });
+            }
+
+
+        }
     }
 }

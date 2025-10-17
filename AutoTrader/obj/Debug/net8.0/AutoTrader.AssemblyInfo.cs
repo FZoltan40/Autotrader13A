@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AutoTrader")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0dcfb98f80a26d79d7769f3349e9429692a39fac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9bc7650999c7f620c1f34bbb885c1ddc3c6f77ba")]
 [assembly: System.Reflection.AssemblyProductAttribute("AutoTrader")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AutoTrader")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
