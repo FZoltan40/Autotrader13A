@@ -46,8 +46,23 @@ namespace AutoTrader.Controllers
 
                 return BadRequest(new { message = "Sikertelen feltöltés." });
             }
+        }
 
+        [HttpGet("byId")]
+        public ActionResult<Car> GetRecordById(int id) 
+        {
+            using (var context = new CarDbContext()) 
+            {
+                var car = context.Cars.FirstOrDefault(car => car.Id == id);
 
+                if (car != null)
+                {
+                    return Ok(new { message = "Sikeres lekérdezés", result = car });
+                }
+
+                return NotFound(new { meassage = "Nincs ilyen id!"});
+            }
+            
         }
     }
 }
