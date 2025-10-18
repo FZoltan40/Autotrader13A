@@ -47,6 +47,22 @@
   },
   {
     "ContainingType": "AutoTrader.Controllers.CarsController",
+    "Method": "DeleteRecord",
+    "RelativePath": "api/Cars",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutoTrader.Controllers.CarsController",
     "Method": "GetRecordById",
     "RelativePath": "api/Cars/byId",
     "HttpMethod": "GET",

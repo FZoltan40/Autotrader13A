@@ -64,5 +64,23 @@ namespace AutoTrader.Controllers
             }
             
         }
+
+        [HttpDelete]
+        public ActionResult DeleteRecord(int id) 
+        {
+            using (var context = new CarDbContext()) 
+            {
+                var car = context.Cars.FirstOrDefault(car => car.Id == id);
+
+                if (car != null) 
+                { 
+                    context.Cars.Remove(car);
+                    context.SaveChanges();
+                    return Ok(new { message = "Sikeres törlés." });
+                }
+
+                return NotFound(new { meassage = "Nincs mit törölni!" });
+            }
+        }
     }
 }
