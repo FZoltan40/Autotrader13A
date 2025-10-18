@@ -1,4 +1,5 @@
 ﻿using AutoTrader.Models;
+using AutoTrader.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoTrader.Controllers
@@ -80,6 +81,30 @@ namespace AutoTrader.Controllers
                 }
 
                 return NotFound(new { meassage = "Nincs mit törölni!" });
+            }
+        }
+
+        [HttpPut]
+        public ActionResult PutRecord(int id, UpdateCarDto updateCarDto) 
+        {
+            using (var context = new CarDbContext()) 
+            {
+                var exitstingCar  = context.Cars.FirstOrDefault(car => car.Id==id);
+
+                if (exitstingCar != null)
+                {
+                    exitstingCar.Brand = updateCarDto.Brand;
+                    exitstingCar.Type = updateCarDto.Type;
+                    exitstingCar.Color = updateCarDto.Color;
+                    exitstingCar.Year = updateCarDto.Year;
+
+                    context.Cars.Update(exitstingCar);
+                    context.SaveChanges();
+
+                    return Ok(new { message = "Sikeres frisítés." });
+                }
+
+                return NotFound(new { meassage = "Nincs mit frissíteni!" });
             }
         }
     }
